@@ -1,0 +1,10 @@
+pagina_inicial: 'http://bookempresa.amil.com.br/'
+
+credenciais_banco_de_dados:
+                  usuario: 'glopes'
+                  senha: 'Amil@1234'
+                  host: 'pdw.amil.com.br'
+                  port: 17001
+                  database: 'BIOP_DWH'
+                  adapter: 'sqlserver'
+                  timeout: 30000

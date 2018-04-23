@@ -1,0 +1,7 @@
+urls:
+  pagina_inicial: 'http://bookempresa.amil.com.br/'
+
+credenciais_banco_dados:
+  usuario: 'test'
+  senha: 'test'
+  host: 'www.test.com.br'

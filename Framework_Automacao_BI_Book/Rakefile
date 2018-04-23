@@ -1,0 +1,110 @@
+require 'rubygems'
+require 'cucumber'
+require 'cucumber/rake/task'
+
+namespace :features do
+
+	Cucumber::Rake::Task.new(:cenarios_relatorio31, "Rodar funcionalidades do Relatório 31") do |t|
+  		t.profile = "cenarios_relatorio31"
+	end
+
+	Cucumber::Rake::Task.new(:cenarios_relatorio36, "Rodar funcionalidades do Relatório 36") do |t|
+  		t.profile = "cenarios_relatorio36"
+	end
+
+	Cucumber::Rake::Task.new(:cenarios_relatorio192, "Rodar funcionalidades do Relatório 192") do |t|
+  		t.profile = "cenarios_relatorio192"
+	end
+
+  Cucumber::Rake::Task.new(:cenarios_relatorio97, "Rodar funcionalidades do Relatório 97") do |t|
+      t.profile = "cenarios_relatorio97"
+  end
+
+	Cucumber::Rake::Task.new(:funcionalidade_relatorio31, "Rodar funcionalidades do Relatório 31") do |t|
+  		t.profile = "feature_relatorio31"
+	end
+
+	Cucumber::Rake::Task.new(:funcionalidade_relatorio36, "Rodar funcionalidades do Relatório 36") do |t|
+  		t.profile = "feature_relatorio36"
+	end
+
+  Cucumber::Rake::Task.new(:funcionalidade_relatorio192, "Rodar funcionalidades do Relatório 192") do |t|
+      t.profile = "feature_relatorio192"
+  end
+
+	Cucumber::Rake::Task.new(:todas_funcionalidades, "Rodar todos os cenários de todas as funcionalidades") do |t|
+		t.profile = "todas_cenarios_todas_funcionalidades"
+	end
+
+	 desc "Rodar todas as funcionalidades"
+	 task :all => [:relatorio31, :relatorio36]
+end
+
+#desc 'Execute fast scenarios'
+ 
+#task :fast_scenarios do
+ 
+#puts 'Running fast scenarios'
+ 
+#sh 'cucumber -t @cenario1_relatorio36'
+ 
+#end
+
+#desc 'Execute fast scenarios'
+#task :fast_scenarios do
+  #puts 'Running fast scenarios'
+  #sh 'cucumber -t @fast'
+#end
+
+#desc 'Execute critic scenarios'
+#task :critic_scenarios do
+  #puts 'Running critic scenarios'
+  #sh 'cucumber -t @critic'
+#end
+
+#desc 'Execute slow scenarios'
+#task :slow_scenarios do
+  #puts 'Running slow scenarios'
+  #sh 'cucumber -t @slow'
+#end
+
+#desc 'Execute medium scenarios'
+#task :medium_scenarios do
+  #puts 'Running medium scenarios'
+  #sh 'cucumber -t @medium'
+#end
+
+#desc 'Execute register feature with fast scenarios'
+#task :medium_scenarios do
+  #puts 'Running medium scenarios'
+  #sh 'cucumber -t ~@pull_request -t ~@search'
+#end
+
+#task :run_features, [:feature, :scenario] do |t, args|
+  #puts  "Running #{args[:feature]} feature with #{args[:scenario]} scenarios "
+  #sh "bundle exec cucumber -t @#{args[:feature]} -t @#{args[:scenario]} --no-source --color --format pretty -x --format json --out reports/bibook.json"
+#end
+
+#desc 'Execute fast scenarios'
+#task :fast_scenarios do
+  #puts 'Running fast scenarios'
+  #sh 'bundle exec cucumber -t @fast'
+#end
+
+task :brito, [:feature, :scenario] do |_task, args|
+  puts  "Running #{args[:feature]} feature with #{args[:scenario]} scenarios and report"
+  #sh "bundle exec cucumber -t @#{args[:feature]} -t @#{args[:scenario]} --no-source --color --format pretty -x --format json --out reports/bibook.json"
+  sh "--no-source --color --format pretty -x --format json --out reports/bibook.json --tags @#{args[:feature]} --tags @#{args[:scenario]}"
+end
+
+#--no-source --color --format pretty -x --format json --out reports/bibook.json --tags @Relatorio31,@Relatorio36 --tags @a,@b,@cenario1_relatorio36
+
+#cuke_task = Cucumber::Rake::Task.new(:features) do |t|
+  #t.cucumber_opts = "features --no-source --color --format pretty -x --format json --out reports/bibook.json"
+#end
+
+#task :feature, :name, :times do |task,args|
+  #puts "Executing feature: #{args[:name]} #{args[:times]} times"
+  #cuke_task.cucumber_opts = "features/#{args[:name]}"
+  #args[:times].to_i.times { Rake::Task[:features].execute }
+#end 

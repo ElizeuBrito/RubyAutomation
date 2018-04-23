@@ -1,0 +1,39 @@
+#RELATÓRIO 31
+feature_relatorio31: --no-source --color --format pretty -x --format json_pretty --out reports/bibook.json
+                      features/Gestao_Saude_Analise_de_custo_e_Receita_Emitida_Contabil_31.feature -t @Relatorio31 --verbose --backtrace
+
+cenarios_relatorio31: --no-source --color --format pretty -x --format json_pretty --out reports/bibook.json
+                      features/Gestao_Saude_Analise_de_custo_e_Receita_Emitida_Contabil_31.feature -t @cenario4_relatorio31 --verbose --backtrace
+
+
+#RELATÓRIO 36                      
+feature_relatorio36: --no-source --color --format pretty -x --format json_pretty --out reports/bibook.json
+                      features/Gestao_Dental_Analise_de_custo_e_Receita_Emitida_Contabil_36.feature -t @Relatorio36 -t @cenario1_relatorio36,@cenario2_relatorio36
+                      --verbose --backtrace
+
+cenarios_relatorio36: --no-source --color --format pretty -x --format json_pretty --out reports/bibook.json
+                      features/Gestao_Dental_Analise_de_custo_e_Receita_Emitida_Contabil_36.feature -t @cenario4_relatorio36 --verbose --backtrace
+
+
+#RELATÓRIO 192
+feature_relatorio192: --no-source --color --format pretty -x --format json_pretty --out reports/bibook.json
+                      features/DICOP_Saude_Analise_de_custo_por_especialidade_beneficiario_192.feature -t @Relatorio192 --verbose --backtrace
+
+cenarios_relatorio192: --no-source --color --format pretty -x --format json_pretty --out reports/bibook.json
+                      features/DICOP_Saude_Analise_de_custo_por_especialidade_beneficiario_192.feature -t @cenario1_relatorio192 --verbose --backtrace
+
+
+#RELATÓRIO 97
+feature_relatorio97: --no-source --color --format pretty -x --format json_pretty --out reports/bibook.json
+                      features/Amil_Planos-Gestao_Analise_de_Receita_Competencia.feature -t @Relatorio97 --verbose --backtrace
+
+cenarios_relatorio97: --no-source --color --format pretty -x --format json_pretty --out reports/bibook.json
+                      features/Amil_Planos-Gestao_Analise_de_Receita_Competencia.feature -t @cenario1_relatorio97 --verbose --backtrace
+
+
+#TODOS OS CENÁRIOS
+todos_cenarios_todas_funcionalidades: --no-source --color --format pretty -x --format json --out reports/bibook.json
+                      --name "Gerar relatório 31, demitidos e aposentados = TODOS e verificar os resultados apresentados para 3 últimas competências" 
+                      --name "Gerar relatório 31, demitidos e aposentados = TODOS e verificar os resultados apresentados para competências de um ano"
+                      --name "Gerar relatório 36, Demitidos Aposentados = Todas, Filial Empresa = Todas, Moeda = Real, Empresa = Todas, Produtos = Todos e verificar os resultados apresentados para 3 últimas competências"
+                      --verbose --backtrace
